@@ -1,0 +1,14 @@
+{
+  "name": "silentium-validation",
+  "version": "1.0.0",
+  "description": "Validation library based on silentium",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "silentium": "^0.0.105"
+  }
+}
