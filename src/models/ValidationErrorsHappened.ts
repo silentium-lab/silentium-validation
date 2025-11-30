@@ -1,3 +1,1 @@
-export function ValidationErrorsHappened() {
-
-}
+export function ValidationErrorsHappened() {}

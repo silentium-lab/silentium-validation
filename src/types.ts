@@ -7,5 +7,5 @@ export type ValidationRule = MessageType<string | boolean>;
 export interface ValidationItem {
   value: unknown;
   key: string;
-  rules: ConstructorType<[ValidationRule]>[];
+  rules: ConstructorType<any, ValidationRule>[];
 }

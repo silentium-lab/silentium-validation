@@ -1,3 +1,1 @@
-export function Validated() {
-    
-}
+export function Validated() {}
