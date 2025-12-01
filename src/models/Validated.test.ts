@@ -1,0 +1,16 @@
+import { Computed, LateShared } from "silentium";
+import { describe, expect, test } from "vitest";
+import { Validated } from "./Validated";
+
+describe("Validated.test", () => {
+  test("should handle empty form", async () => {
+    const $errors = LateShared<any>({
+      name: ["too long"],
+    });
+    const $validated = Computed(Validated, $errors);
+    expect(await $validated).toBe(false);
+
+    $errors.use({});
+    expect(await $validated).toBe(true);
+  });
+});
