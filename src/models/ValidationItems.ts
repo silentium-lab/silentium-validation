@@ -1,10 +1,4 @@
-import {
-  ActualMessage,
-  All,
-  Applied,
-  ConstructorType,
-  MaybeMessage,
-} from "silentium";
+import { ConstructorType } from "silentium";
 import { ValidationRule } from "../types";
 
 export type FormType = Record<string, unknown>;
@@ -14,22 +8,15 @@ export type FormRulesType = Record<
 >;
 
 /**
- * Получить набор всех правил валидации
- * на каждое поле формы
+ * Get a set of all validation rules
+ * for each form field
  */
-export function ValidationItems(
-  form: MaybeMessage<FormType>,
-  rules: MaybeMessage<FormRulesType>,
-) {
-  const $form = ActualMessage(form);
-  const $rules = ActualMessage(rules);
-  return Applied(All($form, $rules), ([form, rules]) => {
-    return Object.keys(form).map((key) => {
-      return {
-        key,
-        value: form[key],
-        rules: rules[key],
-      };
-    });
+export function ValidationItems(form: FormType, rules: FormRulesType) {
+  return Object.keys(form).map((key) => {
+    return {
+      key,
+      value: form[key],
+      rules: rules[key],
+    };
   });
 }

@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint src",
     "lint-fix": "eslint src --fix",
-    "test": "vitest"
+    "test": "vitest run"
   },
   "author": "",
   "license": "MIT",

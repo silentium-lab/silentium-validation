@@ -38,4 +38,90 @@ describe("ValidationErrors", () => {
       salary: ["not enough async or reactive"],
     });
   });
+
+  it("should handle empty form", async () => {
+    const $errors = ValidationErrors([]);
+    const errors = await $errors;
+    expect(errors).toStrictEqual({});
+  });
+
+  it("should handle items with no rules", async () => {
+    const mockForm: ValidationItem[] = [
+      {
+        key: "name",
+        value: "John",
+        rules: [],
+      },
+    ];
+    const $errors = ValidationErrors(mockForm);
+    const errors = await $errors;
+    expect(errors).toStrictEqual({
+      name: [],
+    });
+  });
+
+  it("should filter out true results from rules", async () => {
+    const mockForm: ValidationItem[] = [
+      {
+        key: "age",
+        value: 25,
+        rules: [() => true, () => "error"],
+      },
+    ];
+    const $errors = ValidationErrors(mockForm);
+    const errors = await $errors;
+    expect(errors).toStrictEqual({
+      age: ["error"],
+    });
+  });
+
+  it("should convert false results to 'Error!'", async () => {
+    const mockForm: ValidationItem[] = [
+      {
+        key: "balance",
+        value: 0,
+        rules: [() => false],
+      },
+    ];
+    const $errors = ValidationErrors(mockForm);
+    const errors = await $errors;
+    expect(errors).toStrictEqual({
+      balance: ["Error!"],
+    });
+  });
+
+  it("should handle undefined results from rules", async () => {
+    const mockForm: ValidationItem[] = [
+      {
+        key: "test",
+        value: "value",
+        rules: [() => undefined as any],
+      },
+    ];
+    const $errors = ValidationErrors(mockForm);
+    const errors = await $errors;
+    expect(errors).toStrictEqual({
+      test: [undefined],
+    });
+  });
+
+  it("should handle duplicate keys, keeping the last", async () => {
+    const mockForm: ValidationItem[] = [
+      {
+        key: "field",
+        value: "first",
+        rules: [() => "first error"],
+      },
+      {
+        key: "field",
+        value: "second",
+        rules: [() => "second error"],
+      },
+    ];
+    const $errors = ValidationErrors(mockForm);
+    const errors = await $errors;
+    expect(errors).toStrictEqual({
+      field: ["second error"],
+    });
+  });
 });
