@@ -1,8 +1,8 @@
-import { ConstructorType, MessageType } from "silentium";
+import { ConstructorType, MaybeMessage } from "silentium";
 
 export type ValidationErrorType = Record<string, string[]>;
 
-export type ValidationRule = MessageType<string | boolean>;
+export type ValidationRule = MaybeMessage<string | boolean>;
 
 export interface ValidationItem {
   value: unknown;
