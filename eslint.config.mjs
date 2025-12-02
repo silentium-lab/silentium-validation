@@ -50,4 +50,21 @@ export default [
     },
   },
   eslintPluginPrettierRecommended,
+  {
+    files: ["**/*.cjs"],
+    languageOptions: {
+      globals: {
+        require: "readonly",
+        module: "readonly",
+        exports: "readonly",
+        __dirname: "readonly",
+        __filename: "readonly",
+        process: "readonly",
+      },
+    },
+    rules: {
+      "no-undef": "off", // Allow CommonJS globals
+      "@typescript-eslint/no-require-imports": "off", // Allow require in .cjs files
+    },
+  },
 ];
