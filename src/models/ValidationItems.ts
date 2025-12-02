@@ -12,11 +12,13 @@ export type FormRulesType = Record<
  * for each form field
  */
 export function ValidationItems(form: FormType, rules: FormRulesType) {
-  return Object.keys(form).map((key) => {
-    return {
-      key,
-      value: form[key],
-      rules: rules[key],
-    };
-  });
+  return Object.keys(form)
+    .map((key) => {
+      return {
+        key,
+        value: form[key],
+        rules: rules[key],
+      };
+    })
+    .filter((item) => !!item.rules);
 }

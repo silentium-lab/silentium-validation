@@ -66,7 +66,7 @@ function ValidationItems(form, rules) {
       value: form[key],
       rules: rules[key]
     };
-  });
+  }).filter((item) => !!item.rules);
 }
 
 const Required = (v) => !!v || "Field required";

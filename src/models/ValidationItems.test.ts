@@ -1,10 +1,11 @@
-import { Computed, LateShared } from "silentium";
-import { describe, expect, it } from "vitest";
+import { ValidationErrors } from "@/models/ValidationErrors";
 import { ValidationItems } from "@/models/ValidationItems";
 import { Integer, Required } from "@/rules";
+import { Computed, LateShared } from "silentium";
+import { describe, expect, test } from "vitest";
 
 describe("ValidationItems", () => {
-  it("should return a MessageRx for form fields", () => {
+  test("should return a MessageRx for form fields", () => {
     const form = { name: "John", age: 30 };
     const rules = {
       name: [Required],
@@ -27,7 +28,7 @@ describe("ValidationItems", () => {
     ]);
   });
 
-  it("reactive variant", async () => {
+  test("reactive variant", async () => {
     const form = LateShared({ name: "John", age: 30 });
     const rules = {
       name: [Required],
@@ -68,12 +69,26 @@ describe("ValidationItems", () => {
     ]);
   });
 
-  it("should handle empty form", () => {
+  test("should handle empty form", () => {
     const form = {};
     const rules = {};
 
     const result = ValidationItems(form, rules);
 
     expect(result).toStrictEqual([]);
+  });
+
+  test("Integration with errors component", async () => {
+    const form = { name: "John", age: 11.1, norule: "Norule" };
+    const rules = {
+      name: [Required],
+      age: [Integer],
+    };
+
+    const $errors = ValidationErrors(ValidationItems(form, rules as any));
+    expect(await $errors).toStrictEqual({
+      age: ["Must be integer"],
+      name: [],
+    });
   });
 });

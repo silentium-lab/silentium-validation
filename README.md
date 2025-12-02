@@ -1,6 +1,6 @@
 # Silentium Validation
 
-A reactive validation library built on the Silentium framework for TypeScript applications. Provides asynchronous and reactive validation capabilities with a simple, composable API.
+A reactive validation library built on the Silentium library for TypeScript applications. Provides asynchronous and reactive validation capabilities with a simple, composable API.
 
 ## Features
 
@@ -25,18 +25,16 @@ Create validation items with rules:
 ```typescript
 import { Required, Integer } from 'silentium-validation';
 
-const validationItems = [
-  {
-    key: 'username',
-    value: 'john_doe',
-    rules: [Required],
-  },
-  {
-    key: 'age',
-    value: 25,
-    rules: [Required, Integer],
-  },
-];
+const form = {
+  email: '',
+  password: '',
+};
+const rules = {
+  email: [Required, (v) => /\S+@\S+\.\S+/.test(v) || 'Invalid email'],
+  password: [Required]
+}
+
+const $validationItems = Computed(ValidationItems, form, rules);
 ```
 
 ### Custom Rules
@@ -47,13 +45,16 @@ Define custom validation rules:
 const MinLength = (min: number) => (value: string) =>
   value.length >= min || `Must be at least ${min} characters`;
 
-const validationItems = [
-  {
-    key: 'password',
-    value: 'secret',
-    rules: [Required, MinLength(8)],
-  },
-];
+const form = {
+  username: '',
+  age: 0,
+  password: '',
+};
+const rules = {
+  password: [MinLength(8)]
+}
+
+const $validationItems = Computed(ValidationItems, form, rules);
 ```
 
 ### Running Validation
@@ -63,7 +64,7 @@ Use `ValidationErrors` to get validation results:
 ```typescript
 import { ValidationErrors } from 'silentium-validation';
 
-const $errors = ValidationErrors(validationItems);
+const $errors = ValidationErrors($validationItems);
 const errors = await $errors;
 
 // Result: { username: [], age: [], password: ['Must be at least 8 characters'] }
