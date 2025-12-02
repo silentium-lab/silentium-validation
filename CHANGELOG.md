@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/silentium-lab/silentium-validation/compare/v0.0.2...v0.0.3) (2025-12-02)
+
+
+### Bug Fixes
+
+* **main:** fix links in package json ([5e42621](https://github.com/silentium-lab/silentium-validation/commit/5e42621f10e90a334f8e45d722787e3029f034ac))
+* **main:** readme header ([af23f16](https://github.com/silentium-lab/silentium-validation/commit/af23f168abc06789f2d634bfe4d04e3b549d9661))
+
 ### 0.0.2 (2025-12-02)
 
 
