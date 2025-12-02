@@ -20,6 +20,8 @@
     "lint-fix": "eslint src --fix",
     "test": "vitest run",
     "push-head": "git push origin HEAD",
+    "release": "./beforeRelease.sh && npm run build && git add . && (git commit -m 'build: before release' || echo 'commit failed') && standard-version --no-verify && git push --follow-tags && npm publish",
+    "poor-release": "standard-version --no-verify",
     "cz": "git cz"
   },
   "repository": {
