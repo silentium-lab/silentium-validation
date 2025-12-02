@@ -1,4 +1,4 @@
-import { ValidationErrorType } from "../types";
+import { ValidationErrorType } from "@/types";
 
 /**
  * Overall array of all errors

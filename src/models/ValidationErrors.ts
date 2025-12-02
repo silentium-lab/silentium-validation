@@ -7,7 +7,7 @@ import {
   Message,
   MessageType,
 } from "silentium";
-import { ValidationErrorType, ValidationItem } from "../types";
+import { ValidationErrorType, ValidationItem } from "@/types";
 
 /**
  * Accepts a set of items that need to be validated

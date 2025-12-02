@@ -1,7 +1,7 @@
 import { Computed, LateShared } from "silentium";
 import { describe, expect, test } from "vitest";
-import { ValidationErrorType } from "../types";
-import { ValidationErrorsSummary } from "./ValidationErrorsSummary";
+import { ValidationErrorType } from "@/types";
+import { ValidationErrorsSummary } from "@/models/ValidationErrorsSummary";
 
 describe("ValidationErrorsSummary.test", () => {
   test("regular", async () => {

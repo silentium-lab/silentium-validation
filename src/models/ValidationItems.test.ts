@@ -1,16 +1,14 @@
 import { Computed, LateShared } from "silentium";
 import { describe, expect, it } from "vitest";
-import { ValidationItems } from "./ValidationItems";
+import { ValidationItems } from "@/models/ValidationItems";
+import { Integer, Required } from "@/rules";
 
 describe("ValidationItems", () => {
-  const required = () => "required";
-  const number = () => "number";
-
   it("should return a MessageRx for form fields", () => {
     const form = { name: "John", age: 30 };
     const rules = {
-      name: [required],
-      age: [number],
+      name: [Required],
+      age: [Integer],
     };
 
     const result = ValidationItems(form, rules as any);
@@ -18,12 +16,12 @@ describe("ValidationItems", () => {
     expect(result).toStrictEqual([
       {
         key: "name",
-        rules: [required],
+        rules: [Required],
         value: "John",
       },
       {
         key: "age",
-        rules: [number],
+        rules: [Integer],
         value: 30,
       },
     ]);
@@ -32,8 +30,8 @@ describe("ValidationItems", () => {
   it("reactive variant", async () => {
     const form = LateShared({ name: "John", age: 30 });
     const rules = {
-      name: [required],
-      age: [number],
+      name: [Required],
+      age: [Integer],
     };
 
     const $result = Computed(ValidationItems, form, rules);
@@ -41,12 +39,12 @@ describe("ValidationItems", () => {
     expect(await $result).toStrictEqual([
       {
         key: "name",
-        rules: [required],
+        rules: [Required],
         value: "John",
       },
       {
         key: "age",
-        rules: [number],
+        rules: [Integer],
         value: 30,
       },
     ]);
@@ -59,12 +57,12 @@ describe("ValidationItems", () => {
     expect(await $result).toStrictEqual([
       {
         key: "name",
-        rules: [required],
+        rules: [Required],
         value: "Happy",
       },
       {
         key: "age",
-        rules: [number],
+        rules: [Integer],
         value: 5,
       },
     ]);

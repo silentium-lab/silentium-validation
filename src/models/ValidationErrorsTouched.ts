@@ -1,5 +1,5 @@
 import { All, Applied, Chainable, MessageType } from "silentium";
-import { ValidationErrorType } from "../types";
+import { ValidationErrorType } from "@/types";
 import { Dirty, MergeAccumulation } from "silentium-components";
 
 /**
@@ -12,9 +12,6 @@ export function ValidationErrorsTouched(
   const dirtyForm = Dirty($form);
   Chainable(dirtyForm).chain($form);
   const touchedForm = MergeAccumulation(dirtyForm);
-  touchedForm.then((v) => {
-    console.log(v);
-  });
   const errorsTouched = All(Applied(touchedForm, Object.keys), $errors);
   return Applied(errorsTouched, ([touched, errors]) => {
     return Object.fromEntries(

@@ -1,13 +1,11 @@
 import { describe, expect, test } from "vitest";
-import { ValidationErrorsTouched } from "./ValidationErrorsTouched";
+import { ValidationErrorsTouched } from "@/models/ValidationErrorsTouched";
 import { Computed, LateShared } from "silentium";
-import { ValidationErrors } from "./ValidationErrors";
-import { ValidationItems } from "./ValidationItems";
+import { ValidationErrors } from "@/models/ValidationErrors";
+import { ValidationItems } from "@/models/ValidationItems";
+import { Integer, Required } from "@/rules";
 
 describe("ValidationErrorsTouched.test", () => {
-  const required = (v: unknown) => !!v || "required";
-  const number = (v: unknown) => Number.isInteger(v) || "must be integer";
-
   test("regular", async () => {
     expect(true).toBe(true);
 
@@ -16,8 +14,8 @@ describe("ValidationErrorsTouched.test", () => {
       age: 0,
     });
     const rules = {
-      name: [required],
-      age: [number],
+      name: [Required],
+      age: [Integer],
     };
 
     const $errors = ValidationErrors(Computed(ValidationItems, $form, rules));
@@ -28,7 +26,7 @@ describe("ValidationErrorsTouched.test", () => {
       age: "not int" as unknown as number,
     });
     expect(await $errorsTouched).toStrictEqual({
-      age: ["must be integer"],
+      age: ["Must be integer"],
     });
   });
 });

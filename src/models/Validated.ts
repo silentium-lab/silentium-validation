@@ -1,4 +1,4 @@
-import { ValidationErrorType } from "../types";
+import { ValidationErrorType } from "@/types";
 
 /**
  * Check if there are any errors in the errors object

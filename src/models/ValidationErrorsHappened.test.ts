@@ -1,6 +1,6 @@
 import { Computed } from "silentium";
 import { describe, expect, test } from "vitest";
-import { ValidationErrorsHappened } from "./ValidationErrorsHappened";
+import { ValidationErrorsHappened } from "@/models/ValidationErrorsHappened";
 
 describe("ValidationErrorsHappened.test", () => {
   test("regular", async () => {

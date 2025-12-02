@@ -1,4 +1,4 @@
-import { ValidationErrorType } from "../types";
+import { ValidationErrorType } from "@/types";
 
 /**
  * Show only the errors that exist, fields without errors are not shown

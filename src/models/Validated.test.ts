@@ -1,6 +1,6 @@
 import { Computed, LateShared } from "silentium";
 import { describe, expect, test } from "vitest";
-import { Validated } from "./Validated";
+import { Validated } from "@/models/Validated";
 
 describe("Validated.test", () => {
   test("should handle empty form", async () => {

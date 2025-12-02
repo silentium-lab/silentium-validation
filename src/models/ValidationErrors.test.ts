@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { ValidationItem } from "../types";
-import { ValidationErrors } from "./ValidationErrors";
+import { ValidationItem } from "@/types";
+import { ValidationErrors } from "@/models/ValidationErrors";
 import { Of } from "silentium";
 
 describe("ValidationErrors", () => {

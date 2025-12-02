@@ -1,5 +1,5 @@
 import { ConstructorType } from "silentium";
-import { ValidationRule } from "../types";
+import { ValidationRule } from "@/types";
 
 export type FormType = Record<string, unknown>;
 export type FormRulesType = Record<
