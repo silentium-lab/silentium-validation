@@ -5,9 +5,9 @@
   "license": "MIT",
   "author": "Silentium Lab",
   "type": "module",
-  "main": "dist/silentium.js",
-  "module": "dist/silentium.mjs",
-  "typings": "dist/silentium.d.ts",
+  "main": "dist/silentium_validation.js",
+  "module": "dist/silentium_validation.mjs",
+  "typings": "dist/silentium_validation.d.ts",
   "keywords": [
     "validation",
     "vanilla",
