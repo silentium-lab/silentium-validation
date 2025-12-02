@@ -10,8 +10,6 @@
 </p>
 <br/>
 
-# Silentium Validation
-
 A reactive validation library built on the Silentium library for TypeScript applications. Provides asynchronous and reactive validation capabilities with a simple, composable API.
 
 ## Features
