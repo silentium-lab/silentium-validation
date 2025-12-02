@@ -1,3 +1,15 @@
+<p align="center">
+  <a href="https://silentium-lab.github.io/silentium/#/en/" target="_blank" rel="noopener noreferrer" style="display:flex">
+      <img width="180" src="https://silentium-lab.github.io/silentium/assets/img/logo.svg" alt="logo">
+  </a>
+</p>
+<h1 align="center">Silentium Validation</h1>
+<br/>
+<p align="center">
+  <a href="https://npmjs.com/package/silentium"><img src="https://img.shields.io/npm/v/silentium-validation.svg" alt="npm package"></a>
+</p>
+<br/>
+
 # Silentium Validation
 
 A reactive validation library built on the Silentium library for TypeScript applications. Provides asynchronous and reactive validation capabilities with a simple, composable API.
