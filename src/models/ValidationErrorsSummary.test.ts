@@ -1,11 +1,11 @@
-import { Computed, LateShared } from "silentium";
+import { Computed, Late } from "silentium";
 import { describe, expect, test } from "vitest";
 import { ValidationErrorType } from "@/types";
 import { ValidationErrorsSummary } from "@/models/ValidationErrorsSummary";
 
 describe("ValidationErrorsSummary.test", () => {
   test("regular", async () => {
-    const $errors = LateShared<ValidationErrorType>({});
+    const $errors = Late<ValidationErrorType>({});
     const $summary = Computed(ValidationErrorsSummary, $errors);
     expect(await $summary).toStrictEqual([]);
 

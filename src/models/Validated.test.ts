@@ -1,10 +1,10 @@
-import { Computed, LateShared } from "silentium";
+import { Computed, Late } from "silentium";
 import { describe, expect, test } from "vitest";
 import { Validated } from "@/models/Validated";
 
 describe("Validated.test", () => {
   test("should handle empty form", async () => {
-    const $errors = LateShared<any>({
+    const $errors = Late<any>({
       name: ["too long"],
     });
     const $validated = Computed(Validated, $errors);

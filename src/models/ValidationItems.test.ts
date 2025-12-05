@@ -1,7 +1,7 @@
 import { ValidationErrors } from "@/models/ValidationErrors";
 import { ValidationItems } from "@/models/ValidationItems";
 import { Integer, Required } from "@/rules";
-import { Computed, LateShared } from "silentium";
+import { Computed, Late } from "silentium";
 import { describe, expect, test } from "vitest";
 
 describe("ValidationItems", () => {
@@ -29,7 +29,7 @@ describe("ValidationItems", () => {
   });
 
   test("reactive variant", async () => {
-    const form = LateShared({ name: "John", age: 30 });
+    const form = Late({ name: "John", age: 30 });
     const rules = {
       name: [Required],
       age: [Integer],

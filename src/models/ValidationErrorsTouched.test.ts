@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 import { ValidationErrorsTouched } from "@/models/ValidationErrorsTouched";
-import { Computed, LateShared } from "silentium";
+import { Computed, Late } from "silentium";
 import { ValidationErrors } from "@/models/ValidationErrors";
 import { ValidationItems } from "@/models/ValidationItems";
 import { Integer, Required } from "@/rules";
@@ -9,7 +9,7 @@ describe("ValidationErrorsTouched.test", () => {
   test("regular", async () => {
     expect(true).toBe(true);
 
-    const $form = LateShared<any>({
+    const $form = Late<any>({
       name: "",
       age: 0,
     });

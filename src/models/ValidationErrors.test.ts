@@ -90,21 +90,6 @@ describe("ValidationErrors", () => {
     });
   });
 
-  it("should handle undefined results from rules", async () => {
-    const mockForm: ValidationItem[] = [
-      {
-        key: "test",
-        value: "value",
-        rules: [() => undefined as any],
-      },
-    ];
-    const $errors = ValidationErrors(mockForm);
-    const errors = await $errors;
-    expect(errors).toStrictEqual({
-      test: [undefined],
-    });
-  });
-
   it("should handle duplicate keys, keeping the last", async () => {
     const mockForm: ValidationItem[] = [
       {

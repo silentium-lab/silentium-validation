@@ -47,8 +47,8 @@
     "vitest": "^4.0.14"
   },
   "dependencies": {
-    "silentium": "^0.0.165",
-    "silentium-components": "^0.0.93"
+    "silentium": "^0.0.169",
+    "silentium-components": "^0.0.94"
   },
   "config": {
     "commitizen": {
