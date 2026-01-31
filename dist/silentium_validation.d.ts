@@ -47,7 +47,7 @@ declare function ValidationErrorsSummary(errors: ValidationErrorType): string[];
  *
  * @url https://silentium.pw/article/validation-errors-touched/view
  */
-declare function ValidationErrorsTouched($form: MessageType<Record<string, unknown>>, $errors: MessageType<ValidationErrorType>): silentium.MessageRx<{
+declare function ValidationErrorsTouched($form: MessageType<Record<string, unknown>>, $errors: MessageType<ValidationErrorType>): silentium.MessageImpl<{
     [k: string]: string[];
 }>;
 

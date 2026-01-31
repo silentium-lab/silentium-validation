@@ -10,7 +10,7 @@ function Validated(errors) {
 }
 
 function ValidationErrors(form) {
-  const $form = silentium.ActualMessage(form);
+  const $form = silentium.Actual(form);
   return silentium.Message((resolve, reject) => {
     const formDc = silentium.DestroyContainer();
     $form.then((form2) => {

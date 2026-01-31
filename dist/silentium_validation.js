@@ -1,4 +1,4 @@
-import { ActualMessage, Message, DestroyContainer, All, Applied, Chainable } from 'silentium';
+import { Actual, Message, DestroyContainer, All, Applied, Chainable } from 'silentium';
 import { Dirty, MergeAccumulation } from 'silentium-components';
 
 function Validated(errors) {
@@ -8,7 +8,7 @@ function Validated(errors) {
 }
 
 function ValidationErrors(form) {
-  const $form = ActualMessage(form);
+  const $form = Actual(form);
   return Message((resolve, reject) => {
     const formDc = DestroyContainer();
     $form.then((form2) => {

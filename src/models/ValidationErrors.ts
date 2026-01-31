@@ -1,5 +1,5 @@
 import {
-  ActualMessage,
+  Actual,
   All,
   Applied,
   DestroyContainer,
@@ -19,7 +19,7 @@ import { ValidationErrorType, ValidationItem } from "@/types";
 export function ValidationErrors(
   form: MaybeMessage<ValidationItem[]>,
 ): MessageType<ValidationErrorType> {
-  const $form = ActualMessage(form);
+  const $form = Actual(form);
   return Message((resolve, reject) => {
     const formDc = DestroyContainer();
     $form.then((form) => {
