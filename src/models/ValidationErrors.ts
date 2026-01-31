@@ -13,6 +13,8 @@ import { ValidationErrorType, ValidationItem } from "@/types";
  * Accepts a set of items that need to be validated
  * and when rules produce values, returns the overall set
  * of errors for the given configuration
+ *
+ * @url https://silentium.pw/article/validation-errors/view
  */
 export function ValidationErrors(
   form: MaybeMessage<ValidationItem[]>,

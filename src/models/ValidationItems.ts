@@ -10,6 +10,8 @@ export type FormRulesType = Record<
 /**
  * Get a set of all validation rules
  * for each form field
+ *
+ * @url https://silentium.pw/article/validation-items/view
  */
 export function ValidationItems(form: FormType, rules: FormRulesType) {
   return Object.keys(form)

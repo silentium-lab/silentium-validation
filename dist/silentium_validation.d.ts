@@ -12,6 +12,8 @@ interface ValidationItem {
 /**
  * Check if there are any errors in the errors object
  * Returns a boolean type
+ *
+ * @url https://silentium.pw/article/validated/view
  */
 declare function Validated(errors: ValidationErrorType): boolean;
 
@@ -19,11 +21,15 @@ declare function Validated(errors: ValidationErrorType): boolean;
  * Accepts a set of items that need to be validated
  * and when rules produce values, returns the overall set
  * of errors for the given configuration
+ *
+ * @url https://silentium.pw/article/validation-errors/view
  */
 declare function ValidationErrors(form: MaybeMessage<ValidationItem[]>): MessageType<ValidationErrorType>;
 
 /**
  * Show only the errors that exist, fields without errors are not shown
+ *
+ * @url https://silentium.pw/article/validation-errors-happened/view
  */
 declare function ValidationErrorsHappened(base: ValidationErrorType): {
     [k: string]: string[];
@@ -31,11 +37,15 @@ declare function ValidationErrorsHappened(base: ValidationErrorType): {
 
 /**
  * Overall array of all errors
+ *
+ * @url https://silentium.pw/article/validation-errors-summary/view
  */
 declare function ValidationErrorsSummary(errors: ValidationErrorType): string[];
 
 /**
  * Validation errors are only those that correspond to changed form fields
+ *
+ * @url https://silentium.pw/article/validation-errors-touched/view
  */
 declare function ValidationErrorsTouched($form: MessageType<Record<string, unknown>>, $errors: MessageType<ValidationErrorType>): silentium.MessageRx<{
     [k: string]: string[];
@@ -46,6 +56,8 @@ type FormRulesType = Record<string, ConstructorType<any, ValidationRule>[]>;
 /**
  * Get a set of all validation rules
  * for each form field
+ *
+ * @url https://silentium.pw/article/validation-items/view
  */
 declare function ValidationItems(form: FormType, rules: FormRulesType): {
     key: string;
