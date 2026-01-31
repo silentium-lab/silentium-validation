@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7](https://github.com/silentium-lab/silentium-validation/compare/v0.0.6...v0.0.7) (2026-01-31)
+
+
+### Bug Fixes
+
+* fix chainable ([0fda0e9](https://github.com/silentium-lab/silentium-validation/commit/0fda0e9732098cf0a89a9a17baf30600762ada88))
+
 ### [0.0.6](https://github.com/silentium-lab/silentium-validation/compare/v0.0.5...v0.0.6) (2026-01-31)
 
 
