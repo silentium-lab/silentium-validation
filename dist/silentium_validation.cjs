@@ -51,7 +51,7 @@ function ValidationErrorsSummary(errors) {
 
 function ValidationErrorsTouched($form, $errors) {
   const dirtyForm = silentiumComponents.Dirty($form);
-  silentium.Chainable(dirtyForm).chain($form);
+  dirtyForm.chain($form);
   const touchedForm = silentiumComponents.MergeAccumulation(dirtyForm);
   const errorsTouched = silentium.All(silentium.Applied(touchedForm, Object.keys), $errors);
   return silentium.Applied(errorsTouched, ([touched, errors]) => {

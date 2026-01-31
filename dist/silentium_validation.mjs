@@ -1,4 +1,4 @@
-import { Actual, Message, DestroyContainer, All, Applied, Chainable } from 'silentium';
+import { Actual, Message, DestroyContainer, All, Applied } from 'silentium';
 import { Dirty, MergeAccumulation } from 'silentium-components';
 
 function Validated(errors) {
@@ -49,7 +49,7 @@ function ValidationErrorsSummary(errors) {
 
 function ValidationErrorsTouched($form, $errors) {
   const dirtyForm = Dirty($form);
-  Chainable(dirtyForm).chain($form);
+  dirtyForm.chain($form);
   const touchedForm = MergeAccumulation(dirtyForm);
   const errorsTouched = All(Applied(touchedForm, Object.keys), $errors);
   return Applied(errorsTouched, ([touched, errors]) => {
